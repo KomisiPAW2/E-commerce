@@ -1,0 +1,595 @@
+/* @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;700&display=swap'); */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
+
+* {
+    margin: 0;
+    box-sizing: border-box;
+    font-family: Roboto;
+}
+header {
+    width: 100%;
+    height: 65px;
+    left: 0px;
+    top: 0px;
+    background: #2B2C47;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo {
+    background-color: #FFFFFF;
+    width: 248px;
+    height: 100%;
+}
+
+.logo img {
+    margin-top: 16px;
+    margin-left: 36px;
+    height: 36px;
+}
+
+.login {
+    margin-right: 25px;
+    width: 93px;
+    height: 23px;
+    left: 1305px; 
+}
+
+.login select {
+    background-color: rgba(0, 0, 0, 0);
+    border: none;
+    color: #FFFFFF;
+}
+
+.box {
+    height: 934px;
+    display: flex;
+}
+
+.sidebar {
+    width: 248px;
+    height: 100%;
+    background-color: #EAEAF9;
+    padding-top: 50px;
+}
+
+h2 {
+    font-size: 20px;
+    font-weight: 500;
+}
+
+a {
+    display: block;
+    margin-left: 26px;
+    margin-top: 10px;
+    text-decoration: none;
+    color: #333;
+    font-size: 20px;
+}
+.profil {
+    margin-left: 26px;
+}
+
+.barang {
+    margin-left: 26px;
+    margin-top: 20px;
+}
+
+.penjualan{
+    margin-left: 26px;
+    margin-top: 20px;
+}
+
+.content {
+    width: 75%;
+}
+
+/* Style untuk tampilan profil */
+.menu {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 26px;
+}
+
+.judul {
+    margin-left: 36px;
+    border-bottom: 2px solid black;
+    width: 250px;
+}
+.judul h1 {
+    font-weight: 500;
+}
+
+.tombol {
+    background-color: #39bc95;
+    text-align: center;
+    color: #FFFFFF;
+    font-size: 16px;
+    padding: 10px 15px;
+    border-radius: 10px;
+}
+.tombol:hover{
+    background-color: #1b9b74;
+    text-align: center;
+    color: #FFFFFF;
+    font-size: 16px;
+    padding: 10px 15px;
+    border-radius: 10px;
+}
+
+.isi {
+    margin-left: 46px;
+    margin-top: 26px;
+}
+
+.isi h3 {
+    font-weight: 500;
+}
+
+.nama {
+    margin-top: 26px;
+}
+
+.alamat{
+    margin-top: 26px;
+}
+
+.deskripsi{
+    margin-top: 26px;
+}
+
+.tlp{
+    margin-top: 26px;
+}
+
+.email{
+    margin-top: 26px;
+}
+
+/* style untuk tampilan assets */
+.isiaset {
+    background-color: #f2f4fa;
+    border-radius: 5px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    margin-left: 20px;
+    height: 700px;
+}
+
+.wadah {
+    margin: 10px ;
+}
+.asetjudul {
+    display: grid;
+    grid-template-columns: 60px 450px 450px 120px;
+    border-bottom: 2px solid #b9bcc2;
+    text-align: center;
+    gap: 5px;
+    padding: 15px 0;
+}
+
+.aset1 {
+    display: grid;
+    grid-template-columns: 60px 450px 450px 60px 60px;
+    border-bottom: 2px solid #b9bcc2;
+    text-align: center;
+    padding: 15px 0;
+    gap: 5px;
+}
+
+.gambar {
+    width: 250px;
+    background-color: #b9bcc2;
+    text-align: center;
+    margin-left: 100px;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.hapus {
+    width: 60px;
+    height: 40px;
+    background-color: #F47171;
+    border: none;
+    border-radius: 10px;
+}
+
+.edit {
+    width: 60px;
+    height: 40px;
+    background-color: #3995bc;
+    border: none;
+    border-radius: 10px;
+}
+
+/* style untuk tampilan data barang */
+.datajudul {
+    display: grid;
+    grid-template-columns: 60px 100px 100px 100px 150px 100px 100px 100px 150px 80px;
+    border-bottom: 2px solid #b9bcc2;
+    text-align: center;
+    gap: 5px;
+    padding: 15px 0;
+}
+.aset2 {
+    display: grid;
+    grid-template-columns: 60px 100px 100px 100px 150px 100px 100px 100px 150px 80px 80px;
+    border-bottom: 2px solid #b9bcc2;
+    text-align: center;
+    padding: 15px 0;
+    gap: 5px;
+}
+
+.gbrdata {
+    width: 150px;
+    height: 50px;
+    background-color: #b9bcc2;
+    text-align: center;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.hapus {
+    width: 60px;
+    height: 40px;
+    background-color: #F47171;
+    border: none;
+    border-radius: 10px;
+}
+
+.edit {
+    width: 60px;
+    height: 40px;
+    background-color: #3995bc;
+    border: none;
+    border-radius: 10px;
+}
+
+
+/* style untuk tampilan kategori */
+.isikategori {
+    background-color: #f2f4fa;
+    margin-left: 36px;
+    margin-top: 26px;
+    height: 300px;
+    border-radius: 10px;
+}
+
+
+/* style untuk tampilan approve */
+.jdlapprove {
+    margin-left: 36px;
+    border-bottom: 2px solid black;
+    width: 400px;
+}
+
+.jdlapprove h1 {
+    font-weight: 500;
+}
+
+.isiapprove {
+    background-color: #f2f4fa;
+    border-radius: 5px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    margin-left: 20px;
+    height: 300px;
+    font-weight: 500;
+}
+
+.TR {
+    display: flex;
+    padding: 60px;
+}
+.KD {
+    display: flex;
+    margin-left: 60px;
+}
+
+.TR input {
+    margin-left: 80px;
+    width: 700px;
+    height: 30px;
+    border-radius: 5px;
+    border: 1px solid #AFB2B9;
+}
+.KD input {
+    margin-left: 60px;
+    width: 700px;
+    height: 30px;
+    border-radius: 5px;
+    border: 1px solid #AFB2B9;
+}
+.Pr {
+    background-color: #39bc95;
+    text-align: center;
+    color: #FFFFFF;
+    font-size: 16px;
+    padding: 10px 15px;
+    border-radius: 10px;
+    width: 100px;
+    margin-left: 75%;
+    margin-top: 26px;
+}
+.Pr:hover{
+    background-color: #1b9b74;
+    text-align: center;
+    color: #FFFFFF;
+    font-size: 16px;
+    padding: 10px 15px;
+    border-radius: 10px;
+    width: 100px;
+    margin-left: 75%;
+    margin-top: 26px;
+}
+
+/* style untuk tampilan laporan .penjualan */
+.lapjudul {
+    display: grid;
+    grid-template-columns: 60px 200px 100px 200px 150px 100px 100px 150px ;
+    margin: 26px 0;
+    text-align: center;
+    gap: 5px;
+    padding: 15px 0;
+    border-bottom: 2px solid #b9bcc2;
+    font-weight: 500;
+}
+
+.lap1 {
+    display: grid;
+    grid-template-columns: 60px 200px 100px 200px 150px 100px 100px 150px;
+    text-align: center;
+    padding: 15px 0;
+    gap: 5px;
+    border-bottom: 2px solid #b9bcc2;
+}
+.lap1 input{
+    width: 20px;
+    height: 20px;
+    margin-left: 10px;
+}
+.buktitf {
+    width: 150px;
+    background-color: #AFB2B9;
+    margin-left: 30px;
+    border-radius: 5px;
+    text-align: center;
+}
+.detail {
+    background-color: #39bc95;
+    text-align: center;
+    color: #FFFFFF;
+    font-size: 12px;
+    padding: 10px 15px;
+    border-radius: 10px;
+    width: 80px;
+    height: 30px;
+}
+.detail:hover{
+    background-color: #1b9b74;
+    text-align: center;
+    color: #FFFFFF;
+    font-size: 12px;
+    padding: 10px 15px;
+    border-radius: 10px;
+    width: 80px;
+    height: 30px;
+}
+
+/* style untuk tampilan edit profil  */
+.isiedit {
+    margin-top: 36px;
+    margin-bottom: 20px;
+    margin-left: 20px;
+    height: 700px;
+}
+.NT {
+    display: flex;
+    justify-content: space-between;
+    margin-left: 46px;
+    margin-bottom: 20px ;
+    font-weight: 500;
+}
+.NT input {
+    background-color: #f2f4fa;
+    width: 75%;
+    height: 40px;
+    border-radius: 5px;
+    border: 1px solid #AFB2B9;
+}
+.AT {
+    display: flex;
+    justify-content: space-between;
+    margin-left: 46px;
+    margin-bottom: 20px ;
+    font-weight: 500;
+}
+.AT input {
+    background-color: #f2f4fa;
+    width: 75%;
+    height: 100px;
+    border-radius: 5px;
+    border: 1px solid #AFB2B9;
+}
+.DS {
+    display: flex;
+    justify-content: space-between;
+    margin-left: 46px;
+    margin-bottom: 20px ;
+    font-weight: 500;
+}
+.DS input {
+    background-color: #f2f4fa;
+    width: 75%;
+    height: 100px;
+    border-radius: 5px;
+    border: 1px solid #AFB2B9;
+}
+.TLP {
+    display: flex;
+    justify-content: space-between;
+    margin-left: 46px;
+    margin-bottom: 20px ;
+    font-weight: 500;
+}
+.TLP input {
+    background-color: #f2f4fa;
+    width: 75%;
+    height: 40px;
+    border-radius: 5px;
+    border: 1px solid #AFB2B9;
+}
+.EM {
+    display: flex;
+    justify-content: space-between;
+    margin-left: 46px;
+    margin-bottom: 20px ;
+    font-weight: 500;
+}
+.EM input {
+    background-color: #f2f4fa;
+    width: 75%;
+    height: 40px;
+    border-radius: 5px;
+    border: 1px solid #AFB2B9;
+}
+
+/* style untuk tampilan tambah */
+.tbledit {
+    display: grid;
+    grid-template-columns: 150px 150px;
+    margin-left: 815px;
+    margin-top: 36px;
+}
+.KS {
+    background-color: #39bc95;
+    text-align: center;
+    color: #FFFFFF;
+    height: 30px;
+    border-radius: 10px;
+}
+.KS:hover {
+    background-color: #20a37c;
+    text-align: center;
+    color: #FFFFFF;
+    height: 30px;
+    border-radius: 10px;
+}
+.KS2 {
+    background-color: #F47171;
+    text-align: center;
+    color: #FFFFFF;
+    height: 30px;
+    border-radius: 10px;
+}
+.KS2:hover {
+    background-color: #e74f4f;
+    text-align: center;
+    color: #FFFFFF;
+    height: 30px;
+    border-radius: 10px;
+}
+
+/* style untuk tampilan detail  */
+.tblDetail {
+    background-color: #F47171;
+    text-align: center;
+    color: #FFFFFF;
+    font-size: 16px;
+    padding: 10px 15px;
+    border-radius: 10px;
+}
+.tblDetail:hover{
+    background-color: #e74f4f;
+    text-align: center;
+    color: #FFFFFF;
+    font-size: 16px;
+    padding: 10px 15px;
+    border-radius: 10px;
+}
+
+.jdlDetail {
+    margin-left: 36px;
+    border-bottom: 2px solid black;
+    width: 450px;
+}
+.jdlDetail h1 {
+    font-weight: 500;
+    margin-left: 10px;
+}
+
+/* style untuk detail laporan */
+.dtljudul {
+    display: grid;
+    grid-template-columns: 200px 200px 200px 200px 200px;
+    gap: 5px;
+    font-weight: 500;
+}
+.dtljudul p {
+    margin-top: 26px;
+    margin-bottom: 5px;
+    margin-left: 30px;
+}
+
+.dtl1 {
+    display: grid;
+    grid-template-columns: 200px 200px 200px 200px 200px;
+    gap: 5px;
+    margin-left: 30px;
+    border-bottom: 2px solid #AFB2B9;
+}
+.dtl1 input {
+    width: 20px;
+    height: 20px;
+}
+.total {
+    font-size: 30px;
+}
+
+.DTL {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 26px;
+    margin-left: 26px;
+}
+.jdldetail {
+    display: grid;
+    grid-template-columns: 50px 180px 150px 150px 150px;
+    text-align: center;
+    margin-top: 5px;
+    font-weight: 500;
+    border-bottom: 2px solid #AFB2B9;
+}
+.dtl2 {
+    display: grid;
+    grid-template-columns: 50px 180px 150px 150px 150px;
+    text-align: center;
+    margin-top: 5px;
+}
+
+
+.DTL {
+    margin-top: 50px;
+}
+.dtlbukti {
+    width: 300px;
+    margin-right: 20px;
+}
+.jdlbukti {
+    font-weight: 500;
+}
+.dtlgambar {
+    background-color: #d9d9d9;
+    width: 300px;
+    height: 300px;
+    border-radius: 10px;
+    border: none;
+}
+.tgl {
+    font-weight: 500;
+}
+.kode {
+    font-weight: 500;
+    margin-top: 26px;
+}
