@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>waroEng</title>
+    <link rel="stylesheet" href="css/myStyle.css">
+    <script src="js/jquery-3.6.1.js"></script>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="flex-space-between">
+        <div class="logo-nav">
+            <img src="assets/waroEng3.png" alt="logoWaroeng">
+        </div>
+        <div class="menu-nav flex-item-center">
+            <a class="item-a btn-nav btn-nav-active" href="/index">Beranda</a>
+            <a class="item-a btn-nav" href="/cart">Keranjang</a>
+            <a class="item-a btn-nav" href="/about">Tentang</a>
+            <!-- <a class="item-a btn-nav btn-nav-masuk" href="login.html">Masuk</a> -->
+            <div class="profil flex-content-center">
+                <a class="item-a" href="#"><img class="profil-img" src="assets/profil.jpg" alt="profil"></a>
+            </div>
+        </div>
+    </nav>
+    <!-- Isi -->
+    <div class="container">
+        <div class="flex-item-center">
+            <h2 class="sub-title">Produk Tersedia</h2>
+            <div class="box-210 flex-space-arround">
+                <img class="icon-24" src="assets/filtersquare.png" alt="filter">
+                <select class="select-none" name="kategori" id="kategori">
+                    <option value="1">Sayuran</option>
+                    <option value="2">Bumbu Dapur</option>
+                </select>
+            </div>
+        </div>
+        <div class="content">
+            <!-- <a  class="item-a" href="login.html"> -->
+            <a  class="item-a" href="/detail">
+                <div class="box-content-small">
+                    <div class="foto-item"></div>
+                    <div class="itemInfo flex-space-between">
+                        <div class="itemDesc">
+                            <h3 class="headDesc">Sayur Bayam</h3>
+                            <p class="pDesc">Rp. 5.000,-</p>
+                        </div>
+                        <button class="btn-item"><img class="icon-40" src="assets/addsquare.png" alt="addButton"></button>
+                    </div>
+                </div>
+            </a>
+        </div>
+    </div>
+    <footer>
+
+    </footer>
+</body>
+</html>
