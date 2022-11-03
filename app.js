@@ -16,7 +16,12 @@ app.get('/', (req, res) => {
 });
 
 app.get('/index', (req, res) => {
-    res.render('index.ejs')
+    connection.query('select * from produk', (err, results) => {
+        if (err) {
+            throw error;
+        }
+        res.render('index.ejs', {produks:results});
+    });
 });
 
 app.get('/detail', (req, res) => {
