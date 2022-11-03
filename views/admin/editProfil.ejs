@@ -51,21 +51,22 @@
 
             <div class="isiedit">
                 <form action="/edit" method="post">
+                    <input type="text" hidden value="1" id="id_toko">
                     <div class="NT">
-                        <p>Nama Toko</p>
-                        <input type="text" name="nama_toko">
+                        <label for="namaToko">Nama Toko</label>
+                        <input type="text" name="namaToko">
                     </div>
                     <div class="AT">
                         <p>Alamat Toko</p>
-                        <input type="text" name="alamat_toko">
+                        <input type="text" name="alamatToko">
                     </div>
                     <div class="DS">
                         <p>Deskripsi</p>
-                        <input type="text" name="deskripsi_toko">
+                        <input type="text" name="deskripsiToko">
                     </div>
                     <div class="TLP">
                         <p>No Telepon</p>
-                        <input type="text" name="nomor_telepon">
+                        <input type="text" name="nomorTelepon">
                     </div>
                     <div class="EM">
                         <p>Email</p>
@@ -73,7 +74,6 @@
                     </div>
                     <div class="tbledit">
                         <a href="/dashboard" class="lal-btn-a-back">Kembali</a>
-                        <!-- <a href="" class="KS2">Simpan</a> -->
                         <button type="submit" class="lal-btn-submit">Simpan</button>
                     </div>
                 </form>

@@ -49,42 +49,46 @@
             </div>
 
             <div class="isiedit">
-                <form action="" method="post">
+                <form action="/tambah-data" method="post">
                     <div class="NT">
                         <p>Nama Produk</p>
-                        <input type="text">
+                        <input type="text" name="namaProduk">
                     </div>
                     <div class="NT">
                         <p>Jumlah</p>
-                        <input type="text">
+                        <input type="text" name="jumlah">
                     </div>
                     <div class="NT">
                         <p>Satuan</p>
-                        <input type="text">
+                        <input type="text" name="satuan">
                     </div>
                     <div class="DS">
                         <p>Deskripsi</p>
-                        <input type="text">
+                        <input type="text" name="deskripsi">
                     </div>
                     <div class="EM">
-                        <p>Kategori</p>
-                        <input type="text">
+                        <p>Jenis</p>
+                        <select name="jenis" class="lul-select">
+                            <% jenises.forEach((jenis) => { %>
+                                <option value="<%= jenis.id_JenisBarang %> " > <%= jenis.nama_jenis %> </option>
+                            <% }); %> 
+                        </select>
                     </div>
                     <div class="EM">
                         <p>Harga Jual</p>
-                        <input type="text">
+                        <input type="text" name="hargaJual">
                     </div>
                     <div class="EM">
                         <p>Harga Beli</p>
-                        <input type="text">
+                        <input type="text" name="hargaBeli">
                     </div>
                     <div class="EM">
-                        <p>Foto</p>
-                        <input type="file" name="userimage" id="userimage">
+                        <p>Foto (Masukan Link Foto)</p>
+                        <input type="text" name="foto">
                     </div>
                     <div class="tbledit">
-                        <a href="/databarang" class="KS">Kembali</a>
-                        <a href="#" class="KS2">Simpan</a>
+                        <a href="/dashboard" class="lal-btn-a-back">Kembali</a>
+                        <button type="submit" class="lal-btn-submit">Simpan</button>
                     </div>
                 </form>                
             </div>

@@ -56,73 +56,35 @@
                         <p>Jumlah</p>
                         <p>Satuan</p>
                         <p>Deskripsi</p>
-                        <p>Kategori</p>
+                        <p>Jenis</p>
                         <p>Harga Beli</p>
                         <p>Harga Jual</p>
                         <p>Foto</p>
                         <p>Aksi</p>
                     </div>
-    
-                    <div class="aset2">
-                        <p>1</p>
-                        <p>Sayur Bayem</p>
-                        <p>100</p>
-                        <p>Ikat</p>
-                        <p>Sayur segar langsung dari petaninya</p>
-                        <p>Sayuran</p>
-                        <p>Rp.2500,-</p>
-                        <p>Rp.3000,-</p>
-                        <div class="gbrdata"><img src="" >foto.png</div>
-                        <div class="aksi">
-                            <button class="hapus" >
-                                <img src="assets/trash.png" width="20px">
-                            </button>
-                            <button class="edit">
-                                <img src="assets/edit.png" width="20px">
-                            </button>
-                        </div>
-                    </div>
 
-                    <div class="aset2">
-                        <p>2</p>
-                        <p>Sayur Bayem</p>
-                        <p>100</p>
-                        <p>Ikat</p>
-                        <p>Sayur segar langsung dari petaninya</p>
-                        <p>Sayuran</p>
-                        <p>Rp.2500,-</p>
-                        <p>Rp.3000,-</p>
-                        <div class="gbrdata"><img src="" >foto.png</div>
-                        <div class="aksi">
-                            <button class="hapus" >
-                                <img src="assets/trash.png" width="20px">
-                            </button>
-                            <button class="edit">
-                                <img src="assets/edit.png" width="20px">
-                            </button>
+                    <% for (let index = 0; index < produks.length; index++) { %>
+                    <%  const element = produks[index];  %>
+                        <div class="aset2">
+                            <p>  <%= index+1 %> </p>
+                            <p> <%= element.Nama_Produk %> </p>
+                            <p> <%= element.Jumlah %> </p>
+                            <p> <%= element.Satuan %> </p>
+                            <p> <%= element.Deskripsi %> </p>
+                            <p> <%= element.jenis_barang %> </p>
+                            <p><%= element.Harga_Beli %></p>
+                            <p><%= element.Harga_Jual %></p>
+                            <img class="gbrdata" src="<%= element.foto %>" >
+                            <div class="aksi">
+                                <button class="hapus" >
+                                    <img src="assets/trash.png" width="20px">
+                                </button>
+                                <button class="edit">
+                                    <img src="assets/edit.png" width="20px">
+                                </button>
+                            </div>
                         </div>
-                    </div>
-
-                    <div class="aset2">
-                        <p>3</p>
-                        <p>Sayur Bayem</p>
-                        <p>100</p>
-                        <p>Ikat</p>
-                        <p>Sayur segar langsung dari petaninya</p>
-                        <p>Sayuran</p>
-                        <p><Rp class="2.500,-"></Rp></p>
-                        <p><Rp class="3.000,-"></Rp></p>
-                        <div class="gbrdata"><img src="" >foto.png</div>
-                        <div class="aksi">
-                            <button class="hapus" >
-                                <img src="assets/trash.png" width="20px">
-                            </button>
-                            <button class="edit">
-                                <img src="assets/edit.png" width="20px">
-                            </button>
-                        </div>
-                    </div>
-                    
+                    <% } %> 
                 </div> 
             </div>
 

@@ -44,23 +44,27 @@
         <div class="content">
             <div class="menu">
                 <div class="jdlapprove">
-                    <h1>Tambah Kategori</h1>
+                    <h1>Tambah Jenis</h1>
                 </div>
             </div>
 
             <div class="isiedit">
-                <form action="" method="post">
+                <form action="/procTambahJenis" method="post">
                     <div class="NT">
-                        <p>Nama Kategori</p>
-                        <input type="text">
+                        <p>Nama Jenis</p>
+                        <input type="text" name="namaJenis">
                     </div>
                     <div class="EM">
-                        <p>Jenis</p>
-                        <input type="text">
+                        <p>Kategori</p>
+                        <select name="kategori_barang" id="kategori-barang" class="lul-select">
+                            <% kategoris.forEach((element) => { %> 
+                                <option value="<%= element.id_kategori %> "><%= element.nama_kategori %></option>
+                            <% }); %>
+                        </select>
                     </div>
                     <div class="tbledit">
-                        <a href="/kategori" class="KS">Kembali</a>
-                        <a href="#" class="KS2">Simpan</a>
+                        <a href="/kategori" class="lal-btn-a-back">Kembali</a>
+                        <button type="submit" class="lal-btn-submit">Simpan</button>
                     </div>
                 </form>
             </div>

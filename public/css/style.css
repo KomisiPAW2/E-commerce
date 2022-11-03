@@ -160,6 +160,11 @@ a {
 .wadah {
     margin: 10px ;
 }
+
+.wadahkategori {
+    margin-right: 10px ;
+}
+
 .asetjudul {
     display: grid;
     grid-template-columns: 60px 450px 450px 120px;
@@ -223,7 +228,6 @@ a {
 
 .gbrdata {
     width: 150px;
-    height: 50px;
     background-color: #b9bcc2;
     text-align: center;
     padding: 10px;
@@ -252,7 +256,6 @@ a {
     background-color: #f2f4fa;
     margin-left: 36px;
     margin-top: 26px;
-    height: 300px;
     border-radius: 10px;
 }
 
@@ -382,7 +385,6 @@ a {
     margin-top: 36px;
     margin-bottom: 20px;
     margin-left: 20px;
-    height: 700px;
 }
 .NT {
     display: flex;
@@ -620,4 +622,8 @@ a {
 
 .lal-btn-a-back:hover {
     background-color: #d84040;
+}
+
+.lul-select {
+    width: 814px; height: 40px; background-color: #f2f4fa; border: 1px solid #afb2b9; border-radius: 5px;
 }

@@ -56,54 +56,20 @@
                         <p>Foto</p>
                         <p>Aksi</p>
                     </div>
-    
-                    <div class="aset1">
-                        <p>1</p>
-                        <p>Foto Brand Toko</p>
-                        <div class="gambar"><img src="assets/waroEng3.png" ></div>
-                        <button class="hapus" >
-                            <img src="assets/trash.png" width="20px">
-                        </button>
-                        <button class="edit">
-                            <img src="assets/edit.png" width="20px">
-                        </button>
-                    </div>
-
-                    <div class="aset1">
-                        <p>2</p>
-                        <p>Foto depan toko</p>
-                        <div class="gambar"><img src="assets/waroEng3.png" ></div>
-                        <button class="hapus">
-                            <img src="assets/trash.png" width="20px">
-                        </button>
-                        <button class="edit">
-                            <img src="assets/edit.png" width="20px">
-                        </button>
-                    </div>
-
-                    <div class="aset1">
-                        <p>3</p>
-                        <p>Foto samping toko</p>
-                        <div class="gambar"><img src="assets/waroEng3.png" ></div>
-                        <button class="hapus">
-                            <img src="assets/trash.png" width="20px">
-                        </button>
-                        <button class="edit">
-                            <img src="assets/edit.png" width="20px">
-                        </button>
-                    </div>
-
-                    <div class="aset1">
-                        <p>4</p>
-                        <p>Foto didalam toko</p>
-                        <div class="gambar"><img src="assets/waroEng3.png" ></div>
-                        <button class="hapus">
-                            <img src="assets/trash.png" width="20px">
-                        </button>
-                        <button class="edit">
-                            <img src="assets/edit.png" width="20px">
-                        </button>
-                    </div>
+                    
+                    <% fotos.forEach((fotos) => { %>
+                        <form action="/hapusAsset?" method="get">
+                            <div class="aset1"> 
+                                <input type="text" name="id" hidden value="<%= fotos.id_asset %>">
+                                <p> <%= fotos.id_asset %> </p>
+                                <p><%= fotos.nama_asset %></p>
+                                <img class="gambar" src="<%= fotos.foto %>" >
+                                <button class="hapus" style="margin-left: 20px;" >
+                                    <img src="assets/trash.png" width="20px">
+                                </button>
+                            </div> 
+                        </form>
+                    <% }); %> 
                 </div> 
             </div>
 

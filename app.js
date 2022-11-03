@@ -3,6 +3,7 @@ const app = express();
 const session = require('express-session');
 const path = require('path');
 const mysql=require('mysql');
+
 // Menentukan server port
 app.listen(3280, ()=> {
     console.log('server running on port 3280');
@@ -13,12 +14,13 @@ app.use(express.static('public'));
 
 //Database
 const { DEC8_BIN } = require('mysql/lib/protocol/constants/charsets');
- var connection=mysql.createConnection({
+var connection=mysql.createConnection({
    host:'127.0.0.1',
    user:'root',
    password:'',
    database:'waroeng'
- });
+});
+
 connection.connect(function(error){
    if(!!error){
      console.log(error);
@@ -26,16 +28,19 @@ connection.connect(function(error){
      console.log('Connected!:)');
    }
  });  
-//Sessioning
+
+ //Sessioning
 app.use(session({
 	secret: 'secret',
 	resave: true,
 	saveUninitialized: true
 }));
+
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, 'static')));
- // routing
+
+// routing
 app.get('/', (req, res) => {
         res.render('login.ejs');
 });
@@ -67,10 +72,11 @@ app.post('/submit', (req, res) => {
 			res.end();
 		});
 	} else {
-		response.send('Please enter Username and Password!');
-		response.end();
+		res.send('Please enter Username and Password!');
+		res.end();
 	}
 });
+
 app.post('/', (req, res) => {
 	console.log("Im here");
 	console.log(req.body.namaLengkap);
@@ -89,30 +95,50 @@ app.post('/', (req, res) => {
     });
     res.redirect('/');
 });
+
 app.get('/cart', (req, res) => {
     res.render('cart.ejs');
 });
-app.get('/about', (req, res) => {
-    res.render('about.ejs');
+
+app.get('/about', (req,res) => {
+    connection.query('select * from tb_toko', (err, results) => {
+        if (err) {
+            throw error;
+        }
+        res.render('about.ejs', {items:results});
+    });
 });
+
 app.get('/detail', (req, res) => {
     res.render('detail.ejs');
 });
+
 app.get('/index', (req, res) => {
     // If the user is loggedin
 	if (req.session.loggedin) {
 		// Output username
-        res.render('index.ejs');
-	} else {
+        connection.query('select * from produk', (err, results) => {
+            if (err) {
+                throw error;
+            }
+            res.render('index.ejs', {produks:results});
+        });
+	} 
+    else {
 		// Not logged in
 		res.send('/');
 	}
-	res.end();
+	// res.end();
 });
 app.get('/pembelian', (req, res) => {
     res.render('pembelian.ejs');
 });
 
+app.get('/histori', (req,res) => {
+    res.render('history.ejs');
+});
+
+// admin
 app.get('/admin', (req, res) => {
     res.render('admin/login-admin.ejs');
 });
@@ -156,13 +182,13 @@ app.get('/edit-profil-toko', (req,res) => {
 });
 
 app.post('/edit', (req,res) => {
-    var nama = req.body.nama_toko;
-    var alamat = req.body.alamat_toko;
-    var deskripsi = req.body.deskripsi_toko;
-    var nomor = req.body.nomor_telepon;
+    var nama = req.body.namaToko;
+    var alamat = req.body.alamatToko;
+    var deskripsi = req.body.deskripsiToko;
+    var nomor = req.body.nomorTelepon;
     var email = req.body.email;
 
-    connection.query ('UPDATE tb_toko SET nama_toko=?, alamat_toko=?, deskripsi_toko=?, nomor_telepon=?, email=? WHERE id_toko=1', [nama],[alamat],[deskripsi],[nomor],[email], (error, results) => {
+    connection.query ('UPDATE tb_toko SET nama_toko=?, alamat_toko=?, deskripsi_toko=?, nomor_telepon=?, email=? WHERE id_toko=1', [nama, alamat, deskripsi, nomor, email], (error, results) => {
         if (error) {
             throw error;
         }
@@ -173,18 +199,79 @@ app.post('/edit', (req,res) => {
 });
 
 app.get('/asset', (req,res) => {
-    res.render('admin/assets.ejs')
+    connection.query('select * from asset', (err, results) => {
+        if (err) {
+            throw error;
+        }
+        res.render('admin/assets.ejs', {fotos:results});
+    });
 });
+
+app.post('/tambah-asset', (req,res) => {
+    var nama = req.body.namaField;
+    var foto = req.body.foto;
+    connection.query('insert into asset(nama_asset, foto) values (?, ?)', [nama, foto], (error, results) => {
+        if (error) {
+            throw error;
+        }
+
+        // isi method get (index)
+        res.redirect('/asset');
+    })
+});
+
+app.get('/hapusAsset', (req,res) => {
+    var id = req.body.id;
+
+    connection.query ('DELETE FROM asset WHERE id_asset=?',[id], (error, results) => {
+        if (error) {
+            throw error;
+        }
+
+        // isi method get (index)
+        res.redirect('/hapus');
+    });
+});
+
 app.get('/kodeambil', (req,res) => {
     res.render('kodeambil.ejs')
 });
 
 app.get('/databarang', (req,res) => {
-    res.render('admin/dataBarang.ejs')
+    connection.query('select produk.id_produk, Nama_Produk, Jumlah, Deskripsi, jenis_barang.nama_jenis AS jenis_barang, Satuan, foto, harga_beli, harga_jual From produk LEFT JOIN  jenis_barang on produk.id_jenis = jenis_barang.id_JenisBarang;', (err, results) => {
+        if (err) {
+            throw error;
+        }
+        res.render('admin/dataBarang.ejs', {produks:results});
+    });
+});
+
+app.post('/tambah-data', (req,res) => {
+    var nama = req.body.namaProduk;
+    var jumlah = req.body.jumlah;
+    var satuan = req.body.satuan;
+    var deskripsi = req.body.deskripsi;
+    var jenis = req.body.jenis;
+    var hargaJual = req.body.hargaJual;
+    var hargaBeli = req.body.hargaBeli;
+    var foto = req.body.foto;
+
+    connection.query('insert into produk(Nama_Produk, Jumlah, Satuan, Deskripsi, foto, harga_beli, harga_jual, id_jenis) values (?, ?, ?, ?, ?, ?, ?, ?)', [nama, jumlah, satuan, deskripsi, foto, jenis, hargaBeli, hargaJual], (error, results) => {
+        if (error) {
+            throw error;
+        }
+        res.redirect('/databarang');
+    })
 });
 
 app.get('/kategori', (req,res) => {
-    res.render('admin/kategori.ejs')
+
+    connection.query('select jenis_barang.id_JenisBarang, jenis_barang.nama_jenis AS jenis, kategori_barang.id_kategori, kategori_barang.nama_kategori AS kategori FROM jenis_barang left join kategori_barang on jenis_barang.id_kategori = kategori_barang.id_kategori ', (err, results)=> {
+        if (err) {
+            throw error;
+        }
+        res.render('admin/kategori.ejs', {jenises:results});
+    });
 });
 
 app.get('/approve', (req,res) => {
@@ -200,11 +287,42 @@ app.get('/tambahAset', (req,res) => {
 });
 
 app.get('/tambahDatabarang', (req,res) => {
-    res.render('admin/tambahData.ejs')
+    connection.query('SELECT * FROM jenis_barang', (err, results) => {
+        if (err) {
+            throw error;
+        }
+        res.render('admin/tambahData.ejs', {jenises:results});
+    });
 });
 
 app.get('/tambahKategori', (req,res) => {
-    res.render('admin/tambahKategori.ejs')
+    connection.query('SELECT * FROM kategori_barang', (err, results) => {
+        if (err) {
+            throw error;
+        }
+        res.render('admin/tambahKategori.ejs', {kategoris:results});
+    });
+});
+
+app.post('/procTambahJenis', (req,res) => {
+    var nama = req.body.namaJenis;
+    var kategori = req.body.kategori_barang;
+    connection.query('INSERT INTO jenis_barang(nama_jenis, id_kategori) values (?, ?)', [nama,kategori], (err, results)=>{
+        if (err) {
+            throw error;
+        }
+        res.redirect('/kategori');
+    });
+});
+
+app.post('/procTambahKategori', (req,res) => {
+    var nama = req.body.kategori;
+    connection.query('INSERT INTO kategori_barang(nama_kategori) values (?)', [nama], (err, results)=>{
+        if (err) {
+            throw error;
+        }
+        res.redirect('/kategori');
+    });
 });
 
 app.get('/tambahJenis', (req,res) => {
