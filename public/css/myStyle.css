@@ -390,6 +390,12 @@ nav {
     border-radius: 10px;
 }
 
+.box-content-about {
+    background-color: white;
+    width: 100%;
+    border-radius: 10px;
+}
+
 .box-content-big {
     background-color: white;
     width: 900px;
@@ -533,6 +539,9 @@ nav {
     width: 100px;
     height: 100%;
     margin-left: 30px;
+    position: relative;
+    display: inline-block;
+
 }
 
 .detail-cont {
@@ -615,4 +624,28 @@ nav {
     background-color: #d9d9d9;
     margin: 20px 0;
     border-radius: 10px;
+}
+
+.dropdown-item {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    right: 0;
+}
+
+.dropdown-item a {
+    color: #333;
+    padding: 12px 16px;
+    display: block;
+}
+
+.dropdown-item a:hover {
+    background-color: #f1f1f1;
+}
+
+.profil:hover .dropdown-item {
+    display: block;
 }

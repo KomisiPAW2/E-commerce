@@ -593,3 +593,31 @@ a {
     font-weight: 500;
     margin-top: 26px;
 }
+
+/* MY CSS */
+.lal-btn-submit {
+    background-color: #20a37c;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-size: 18px;
+    margin: 0 10px;
+}
+
+.lal-btn-submit:hover {
+    background-color: #168765;
+    cursor: pointer;
+}
+
+.lal-btn-a-back {
+    color: white;
+    background-color: #e74f4f;
+    padding: 10px 5px;
+    margin: 0px;
+    text-align: center;
+    border-radius: 10px;
+}
+
+.lal-btn-a-back:hover {
+    background-color: #d84040;
+}

@@ -6,12 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>waroEng</title>
     <link rel="stylesheet" href="css/style.css">
-
 </head>
 <body>
     <header>
         <div class="logo">
-            <img src="waroEng3.png"/>
+            <img src="assets/waroEng3.png"/>
         </div>
         <div class="login">
             <select>
@@ -25,18 +24,18 @@
         <div class="sidebar">
             <div class="profil">
                 <h2>Profil Toko</h2>
-                <a href="index.html">Profil</a>
-                <a href="assets.html">Assets</a>
+                <a href="/dashboard">Profil</a>
+                <a href="/asset">Assets</a>
             </div>
             <div class="barang">
                 <h2>Barang</h2>
-                <a href="dataBarang.html">Data Barang</a>
-                <a href="kategori.html">Kategori</a>
+                <a href="/databarang">Data Barang</a>
+                <a href="/kategori">Kategori</a>
             </div>
             <div class="penjualan">
                 <h2>Penjualan</h2>
-                <a href="approve.html">Approve</a>
-                <a href="lapPenjualan.html">Laporan Penjualan</a>
+                <a href="/approve">Approve</a>
+                <a href="/laporanPenjualan">Laporan Penjualan</a>
             </div>
         </div>
 
@@ -51,36 +50,35 @@
             
 
             <div class="isiedit">
-                <form action="" method="post">
-                <div class="NT">
-                    <p>Nama Toko</p>
-                    <input type="text">
-                </div>
-                <div class="AT">
-                    <p>Alamat Toko</p>
-                    <input type="text">
-                </div>
-                <div class="DS">
-                    <p>Deskripsi</p>
-                    <input type="text">
-                </div>
-                <div class="TLP">
-                    <p>No Telepon</p>
-                    <input type="text">
-                </div>
-                <div class="EM">
-                    <p>Email</p>
-                    <input type="text">
-                </div>
-                <div class="tbledit">
-                    <a href="index.html" class="KS">Kembali</a>
-                    <a href="#" class="KS2">Simpan</a>
-                </div>
+                <form action="/edit" method="post">
+                    <div class="NT">
+                        <p>Nama Toko</p>
+                        <input type="text" name="nama_toko">
+                    </div>
+                    <div class="AT">
+                        <p>Alamat Toko</p>
+                        <input type="text" name="alamat_toko">
+                    </div>
+                    <div class="DS">
+                        <p>Deskripsi</p>
+                        <input type="text" name="deskripsi_toko">
+                    </div>
+                    <div class="TLP">
+                        <p>No Telepon</p>
+                        <input type="text" name="nomor_telepon">
+                    </div>
+                    <div class="EM">
+                        <p>Email</p>
+                        <input type="text" name="email">
+                    </div>
+                    <div class="tbledit">
+                        <a href="/dashboard" class="lal-btn-a-back">Kembali</a>
+                        <!-- <a href="" class="KS2">Simpan</a> -->
+                        <button type="submit" class="lal-btn-submit">Simpan</button>
+                    </div>
                 </form>
             </div>
         </div>
-
     </div>
-     
 </body>
 </html>
