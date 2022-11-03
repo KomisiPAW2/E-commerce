@@ -52,7 +52,6 @@ app.get('/tambahData', (req, res) => {
 app.get('/tambahKategori', (req, res) => {
     res.render('tambahKategori.ejs')
 });
-<<<<<<< HEAD
 app.get('/index', (req, res) => {
     res.render('index.ejs');
 });
@@ -152,13 +151,3 @@ connection.connect(function(err){
  });  
 
  app.use(express.urlencoded({extended:false}));
-=======
-
-app.get('/tambahJenis', (req, res) => {
-    res.render('tambahJenis.ejs')
-});
-
-app.get('/detailLaporan', (req, res) => {
-    res.render('detailLaporan.ejs')
-});
->>>>>>> 2fbe3b2fceff6af2de7f64991d697776cca44659
