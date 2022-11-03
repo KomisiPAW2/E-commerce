@@ -34,20 +34,22 @@
     <div class="container">
         <h3 class="sub-title" style="margin-bottom: 25px;">Tentang Kami</h3>
         <div class="box-content-about flex-space-arround" style="flex-wrap: wrap; padding: 50px 40px; margin: 0px 10px;">
-            <div class="box-content-middle" style="background-color: rgba(0,0,0,0); margin: 50px 0px;">
-                <img class="foto-about" src="assets/waroEng4x.png" alt="logo">
+            <div class="box-content-middle" style="background-color: rgba(0,0,0,0); margin: 50px 0px;"> 
+                <img class="foto-about" src='assets/' alt="logo">
             </div>
             <div class="box-content-big" style="background-color: rgba(0,0,0,0); padding: 20px;">
-                <h2 class="headDesc">Nama Toko</h2>
-                <p class="bodyDesc" style="margin-bottom: 25px;">waroEng</p>
-                <h2 class="headDesc">Alamat Toko</h2>
-                <p class="bodyDesc" style="margin-bottom: 25px;">Jln. Bungbulang No. 35 Cipadung Wetan RT 07 RW 08 Kec. Cihanjuang Kab. Banjarmasin Provinsi Sumatra Selatan </p>
-                <h2 class="headDesc">Deskrpsi Toko</h2>
-                <p class="bodyDesc" style="margin-bottom: 25px;">Toko ini merupakan toko mitra grosir dimana anda dapat membeli apapun yang anda inginkan dan yang anda mau jika anda ingin</p>
-                <h2 class="headDesc">Email Toko</h2>
-                <p class="bodyDesc" style="margin-bottom: 25px;">waroengtoko21@waroeng.com</p>
-                <h2 class="headDesc">Nomor Telepon Toko</h2>
-                <p class="bodyDesc" style="margin-bottom: 25px;">+62 814-6096-7389</p>
+                <% items.forEach((item) => { %>
+                    <h2 class="headDesc">Nama Toko</h2>
+                    <p class="bodyDesc" style="margin-bottom: 25px;"><%= item.nama_toko %></p>
+                    <h2 class="headDesc">Alamat Toko</h2>
+                    <p class="bodyDesc" style="margin-bottom: 25px;"><%= item.alamat_toko %></p>
+                    <h2 class="headDesc">Deskrpsi Toko</h2>
+                    <p class="bodyDesc" style="margin-bottom: 25px;"><%= item.deskripsi_toko %></p>
+                    <h2 class="headDesc">Email Toko</h2>
+                    <p class="bodyDesc" style="margin-bottom: 25px;"><%= item.email %></p>
+                    <h2 class="headDesc">Nomor Telepon Toko</h2>
+                    <p class="bodyDesc" style="margin-bottom: 25px;"><%= item.nomor_telepon %></p>
+                <% }) %> 
             </div>
             <h2 class="sub-title" style="margin: 20px auto; border-bottom: 3px solid #333; padding: 10px;">Gallery</h2>
             <div class="galery flex-space-arround">

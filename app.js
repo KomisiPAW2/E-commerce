@@ -48,7 +48,12 @@ app.get('/pembelian', (req, res) => {
 });
 
 app.get('/about', (req,res) => {
-    res.render('about.ejs')
+    connection.query('select * from tb_toko', (err, results) => {
+        if (err) {
+            throw error;
+        }
+        res.render('about.ejs', {items:results});
+    });
 });
 
 
