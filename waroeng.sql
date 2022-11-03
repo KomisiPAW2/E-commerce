@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 03, 2022 at 07:00 AM
--- Server version: 10.4.25-MariaDB
--- PHP Version: 8.1.10
+-- Generation Time: Nov 03, 2022 at 08:26 AM
+-- Server version: 10.4.24-MariaDB
+-- PHP Version: 8.1.6
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -39,6 +39,25 @@ CREATE TABLE `admin` (
 
 INSERT INTO `admin` (`id_admin`, `username`, `password`) VALUES
 (1, 'sudo', 'sudo123');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `asset`
+--
+
+CREATE TABLE `asset` (
+  `id_asset` int(11) NOT NULL,
+  `nama_asset` varchar(500) NOT NULL,
+  `foto` varchar(500) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `asset`
+--
+
+INSERT INTO `asset` (`id_asset`, `nama_asset`, `foto`) VALUES
+(1, 'Foto Utama', 'waroeng4x.png');
 
 -- --------------------------------------------------------
 
@@ -77,6 +96,14 @@ CREATE TABLE `jenis_barang` (
   `id_kategori` int(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `jenis_barang`
+--
+
+INSERT INTO `jenis_barang` (`id_JenisBarang`, `nama_jenis`, `id_kategori`) VALUES
+(1, 'Sayuran', 1),
+(2, 'Snack', 1);
+
 -- --------------------------------------------------------
 
 --
@@ -87,6 +114,15 @@ CREATE TABLE `kategori_barang` (
   `id_kategori` int(100) NOT NULL,
   `nama_kategori` varchar(200) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `kategori_barang`
+--
+
+INSERT INTO `kategori_barang` (`id_kategori`, `nama_kategori`) VALUES
+(1, 'Makanan dan Minuman'),
+(2, 'Elektronik'),
+(3, 'Kebersihan');
 
 -- --------------------------------------------------------
 
@@ -195,6 +231,12 @@ ALTER TABLE `admin`
   ADD PRIMARY KEY (`id_admin`);
 
 --
+-- Indexes for table `asset`
+--
+ALTER TABLE `asset`
+  ADD PRIMARY KEY (`id_asset`);
+
+--
 -- Indexes for table `harga`
 --
 ALTER TABLE `harga`
@@ -211,7 +253,7 @@ ALTER TABLE `histori`
 --
 ALTER TABLE `jenis_barang`
   ADD PRIMARY KEY (`id_JenisBarang`),
-  ADD UNIQUE KEY `id_kategori` (`id_kategori`);
+  ADD KEY `id_kategori` (`id_kategori`) USING BTREE;
 
 --
 -- Indexes for table `kategori_barang`
@@ -268,6 +310,12 @@ ALTER TABLE `admin`
   MODIFY `id_admin` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
+-- AUTO_INCREMENT for table `asset`
+--
+ALTER TABLE `asset`
+  MODIFY `id_asset` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
 -- AUTO_INCREMENT for table `harga`
 --
 ALTER TABLE `harga`
@@ -283,13 +331,13 @@ ALTER TABLE `histori`
 -- AUTO_INCREMENT for table `jenis_barang`
 --
 ALTER TABLE `jenis_barang`
-  MODIFY `id_JenisBarang` int(100) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_JenisBarang` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `kategori_barang`
 --
 ALTER TABLE `kategori_barang`
-  MODIFY `id_kategori` int(100) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_kategori` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `pembayaran`
