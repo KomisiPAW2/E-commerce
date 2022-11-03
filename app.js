@@ -9,59 +9,56 @@ app.listen(3000, ()=> {
 
 app.use(express.static('public'));
 
+
+// Customer
 app.get('/', (req, res) => {
-    res.render('index.ejs')
+    res.render('login.ejs')
 });
 
 app.get('/index', (req, res) => {
     res.render('index.ejs')
 });
 
-app.get('/assets', (req, res) => {
-    res.render('assets.ejs')
+app.get('/detail', (req, res) => {
+    res.render('detail.ejs')
 });
 
-app.get('/dataBarang', (req, res) => {
-    res.render('dataBarang.ejs')
+app.get('/cart', (req, res) => {
+    res.render('cart.ejs')
 });
 
-app.get('/kategori', (req, res) => {
-    res.render('kategori.ejs')
+app.get('/signup', (req, res) => {
+    res.render('signup.ejs')
 });
 
-app.get('/approve', (req, res) => {
-    res.render('approve.ejs')
+app.get('/forgotPassword', (req, res) => {
+    res.render('forgotPassword.ejs')
 });
 
-app.get('/lapPenjualan', (req, res) => {
-    res.render('lapPenjualan.ejs')
+app.get('/histori', (req, res) => {
+    res.render('history.ejs')
 });
 
-app.get('/editProfil', (req, res) => {
-    res.render('editProfil.ejs')
+app.get('/kodeAmbil', (req, res) => {
+    res.render('kodeAmbil.ejs')
 });
 
-app.get('/tambahAset', (req, res) => {
-    res.render('tambahAset.ejs')
-});
-
-app.get('/tambahData', (req, res) => {
-    res.render('tambahData.ejs')
-});
-
-app.get('/tambahKategori', (req, res) => {
-    res.render('tambahKategori.ejs')
-});
-app.get('/index', (req, res) => {
-    res.render('index.ejs');
-});
 app.get('/pembelian', (req, res) => {
     res.render('pembelian.ejs');
 });
 
+app.get('/about', (req,res) => {
+    res.render('about.ejs')
+});
+
+
 // Admin
 app.get('/admin', (req, res) => {
     res.render('admin/login-admin.ejs');
+});
+
+app.post('/submitA', (req,res) => {
+    res.redirect('/dashboard');
 });
 
 app.get('/dashboard', (req,res) => {
@@ -78,13 +75,13 @@ app.get('/edit-profil-toko', (req,res) => {
 });
 
 app.post('/edit', (req,res) => {
-    var nama = req.body.nama_toko;
-    var alamat = req.body.alamat_toko;
-    var deskripsi = req.body.deskripsi_toko;
-    var nomor = req.body.nomor_telepon;
+    var nama = req.body.namaToko;
+    var alamat = req.body.alamatToko;
+    var deskripsi = req.body.deskripsiToko;
+    var nomor = req.body.nomorTelepon;
     var email = req.body.email;
 
-    connection.query ('UPDATE tb_toko SET nama_toko=?, alamat_toko=?, deskripsi_toko=?, nomor_telepon=?, email=? WHERE id_toko=1', [nama],[alamat],[deskripsi],[nomor],[email], (error, results) => {
+    connection.query ('UPDATE tb_toko SET nama_toko=nama, alamat_toko=, deskripsi_toko=?, nomor_telepon=?, email=? WHERE id_toko==1', [nama,alamat,deskripsi,nomor,email], (error, results) => {
         if (error) {
             throw error;
         }
@@ -142,6 +139,7 @@ var mysql=require('mysql');
    password:'',
    database:'waroeng'
  });
+ 
 connection.connect(function(err){
    if(err){
      console.log(error);

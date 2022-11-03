@@ -13,14 +13,19 @@
     <!-- Navbar -->
     <nav class="flex-space-between">
         <div class="logo-nav">
-            <img src="assets/waroEng3.png" alt="logoWaroeng">
+            <a href="/index" class="item-a"><img src="assets/waroEng3.png" alt="logoWaroeng"></a>
         </div>
         <div class="menu-nav flex-item-center">
             <a class="item-a btn-nav" href="/index">Beranda</a>
             <a class="item-a btn-nav" href="/cart">Keranjang</a>
             <a class="item-a btn-nav" href="/about">Tentang</a>
             <div class="profil flex-content-center">
-                <a class="item-a" href="#"><img class="profil-img" src="assets/profil.jpg" alt="profil"></a>
+                <button style="cursor: pointer;"><img class="profil-img" src="assets/profil.jpg" alt="profil"></button>
+                <div class="dropdown-item">
+                    <a href="/histori" class="item-a">Histori Pembelian</a>
+                    <a href="/kodeAmbil" class="item-a">Ambil Barang</a>
+                    <a href="/" class="item-a">Logout</a>
+                </div>
             </div>
         </div>
     </nav>
@@ -130,7 +135,7 @@
                     <h3 class="tableTitle">Status Pengambilan</h3>
                     <p class="p-14 belum-bayar">Belum ambil</p>
                 </div>
-                <a href="kodeAmbil.html" class="item-a btn-generate">Generate Kode Pengambilan</a>
+                <a href="/kodeAmbil" class="item-a btn-generate">Generate Kode Pengambilan</a>
             </div>
         </div>
     </div>
