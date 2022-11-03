@@ -1,8 +1,8 @@
-const express = require('express');
-const app = express();
-const session = require('express-session');
-const path = require('path');
-const mysql=require('mysql');
+const express = require('express');  // modul express
+const app = express(); // mengganganti express -> app
+const session = require('express-session'); // express session
+const path = require('path'); // membaca method path 
+const mysql=require('mysql'); // modul mysql
 
 // Menentukan server port
 app.listen(3280, ()=> {
@@ -13,14 +13,15 @@ app.listen(3280, ()=> {
 app.use(express.static('public'));
 
 //Database
-const { DEC8_BIN } = require('mysql/lib/protocol/constants/charsets');
+const { DEC8_BIN } = require('mysql/lib/protocol/constants/charsets'); //mengambil aturan eropa barat
 var connection=mysql.createConnection({
-   host:'127.0.0.1',
+   host:'127.0.0.1', // server localhost
    user:'root',
    password:'',
-   database:'waroeng'
+   database:'waroeng' // nama database
 });
 
+// mengecek koneksi database
 connection.connect(function(error){
    if(!!error){
      console.log(error);
@@ -35,6 +36,7 @@ app.use(session({
 	resave: true,
 	saveUninitialized: true
 }));
+
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
@@ -77,6 +79,7 @@ app.post('/submit', (req, res) => {
 	}
 });
 
+// post laman signup
 app.post('/', (req, res) => {
 	console.log("Im here");
 	console.log(req.body.namaLengkap);
@@ -96,10 +99,12 @@ app.post('/', (req, res) => {
     res.redirect('/');
 });
 
+//routing laman cart
 app.get('/cart', (req, res) => {
     res.render('cart.ejs');
 });
 
+// routing laman about
 app.get('/about', (req,res) => {
     connection.query('select * from tb_toko', (err, results) => {
         if (err) {
@@ -109,8 +114,13 @@ app.get('/about', (req,res) => {
     });
 });
 
+// routing laman detail
 app.get('/detail', (req, res) => {
-    res.render('detail.ejs');
+    var id = req.params.id
+    connection.query('select * from produk where id_produk = ?', [id], (err,results) => {
+        if(err) {throw err;}
+        res.render('detail.ejs', {detils:results});  
+    })
 });
 
 app.get('/index', (req, res) => {
@@ -181,6 +191,7 @@ app.get('/edit-profil-toko', (req,res) => {
     res.render('admin/editProfil.ejs');
 });
 
+// ngepost laman edit saat di connect query database
 app.post('/edit', (req,res) => {
     var nama = req.body.namaToko;
     var alamat = req.body.alamatToko;
@@ -198,6 +209,7 @@ app.post('/edit', (req,res) => {
     });
 });
 
+// ngambil laman assets
 app.get('/asset', (req,res) => {
     connection.query('select * from asset', (err, results) => {
         if (err) {
@@ -206,7 +218,7 @@ app.get('/asset', (req,res) => {
         res.render('admin/assets.ejs', {fotos:results});
     });
 });
-
+// post tambah asset
 app.post('/tambah-asset', (req,res) => {
     var nama = req.body.namaField;
     var foto = req.body.foto;
@@ -223,13 +235,26 @@ app.post('/tambah-asset', (req,res) => {
 app.get('/hapusAsset', (req,res) => {
     var id = req.body.id;
 
+    connection.query ('SELECT * FROM asset', (error, results) => {
+        if (error) {
+            throw error;
+        }
+
+        // isi method get (index)
+        res.render('admin/hapusAsset.ejs', {assets:results});
+    });
+});
+
+app.post('/hapus-asset', (req,res) => {
+    var id = req.body.asset;
+
     connection.query ('DELETE FROM asset WHERE id_asset=?',[id], (error, results) => {
         if (error) {
             throw error;
         }
 
         // isi method get (index)
-        res.redirect('/hapus');
+        res.redirect('/asset');
     });
 });
 
@@ -263,6 +288,15 @@ app.post('/tambah-data', (req,res) => {
         res.redirect('/databarang');
     })
 });
+
+app.get('/hapusBarang', (req,res)=>{
+    connection.query('select * from produk', (err, results)={
+        if (err) {
+            throw err;
+        }
+        
+    })
+})
 
 app.get('/kategori', (req,res) => {
 

@@ -154,7 +154,6 @@ a {
     margin-top: 20px;
     margin-bottom: 20px;
     margin-left: 20px;
-    height: 700px;
 }
 
 .wadah {
@@ -626,4 +625,8 @@ a {
 
 .lul-select {
     width: 814px; height: 40px; background-color: #f2f4fa; border: 1px solid #afb2b9; border-radius: 5px;
+}
+
+.lul-pad {
+    padding: 10px;
 }

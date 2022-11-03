@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>waroEng</title>
+    <link rel="stylesheet" href="css/style.css">
+
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="assets/waroEng3.png"/>
+        </div>
+        <div class="login">
+            <select>
+                <option value="admin">Admin</option>
+                <option value="keluar">Logout</option>
+            </select>
+        </div>
+    </header>
+
+    <div class="box">
+        <div class="sidebar">
+            <div class="profil">
+                <h2>Profil Toko</h2>
+                <a href="/dashboard">Profil</a>
+                <a href="/asset">Assets</a>
+            </div>
+            <div class="barang">
+                <h2>Barang</h2>
+                <a href="/databarang">Data Barang</a>
+                <a href="/kategori">Kategori</a>
+            </div>
+            <div class="penjualan">
+                <h2>Penjualan</h2>
+                <a href="/approve">Approve</a>
+                <a href="/laporanPenjualan">Laporan Penjualan</a>
+            </div>
+        </div>
+
+       
+        <div class="content">
+            <div class="menu">
+                <div class="jdlapprove">
+                    <h1>Hapus Asset</h1>
+                </div>
+            </div>
+
+            <div class="isiedit">
+                <form action="/hapus-asset" method="post">
+                    <div class="NT">
+                        <p>Asset</p>
+                        <select name="asset" id="asset" class="lul-select">
+                            <% assets.forEach((element) => { %>
+                                <option value="<%= element.id_asset %> "><%= element.nama_asset %> </option>
+                            <% }) %>
+                        </select>
+                    </div>
+                    <div class="tbledit">
+                        <a href="/asset" class="lal-btn-a-back">Kembali</a>
+                        <button type="submit" class="lal-btn-submit">Proses</button>
+                    </div>
+                </form>
+                
+            </div>
+        </div>
+
+    </div>
+     
+</body>
+</html>

@@ -46,7 +46,9 @@
             <!-- <a  class="item-a" href="login.html"> -->
             <% produks.forEach((produk) => { %>
                 <div class="box-content-small">
+                    <form action="/detail" method="get">
                     <a class="item-a" href="/detail">
+                        <input type="text" name="id_produk" hidden value="<%= produk.id_produk %> ">
                         <div class="foto-item"><img class="foto-item" src="<%= produk.foto %>" alt="Foto <%= produk.Nama_Produk %>"></div>
                         <div class="itemInfo flex-space-between">
                             <div class="itemDesc">
@@ -55,6 +57,7 @@
                             </div>
                         </a>
                         <button class="btn-item"><img class="icon-40" src="assets/addsquare.png" alt="addButton"></button>
+                    </form>
                     </div>
                 </div>
             <% }); %> 

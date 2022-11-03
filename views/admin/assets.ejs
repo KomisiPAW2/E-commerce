@@ -58,7 +58,7 @@
                     </div>
                     
                     <% fotos.forEach((fotos) => { %>
-                        <form action="/hapusAsset?" method="get">
+                        <form action="/hapusAsset" method="get">
                             <div class="aset1"> 
                                 <input type="text" name="id" hidden value="<%= fotos.id_asset %>">
                                 <p> <%= fotos.id_asset %> </p>
