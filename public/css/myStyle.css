@@ -636,6 +636,12 @@ nav {
     right: 0;
 }
 
+.profil button{
+    background-color: rgba(145, 166, 228, 0);
+    border: none;
+    border-radius: 50px;
+}
+
 .dropdown-item a {
     color: #333;
     padding: 12px 16px;

@@ -642,10 +642,19 @@ a {
     text-align: center;
 }
 
+.profil-dropdown button {
+    border: none;
+    background-color: rgba(225, 225, 225, 0);
+    color: white;
+    font-size: 16px;
+    font-weight: 500;
+    width: 100px;
+    height: 30px;
+}
+
 .profil-dropdown {
     width: 100px;
     height: 100%;
-    margin-left: 30px;
     position: relative;
     display: inline-block;
 
@@ -664,20 +673,23 @@ a {
     display: none;
     position: absolute;
     background-color: #f9f9f9;
-    min-width: 50px;
+    min-width: 100px;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
     z-index: 1;
-    right: 40px;
-    top: 20px;
+    right: 30px;
+    top: 25px;
     justify-content: center;
     text-align: center;
+    border-radius: 10px;
 }
 
 .dropdown-item a {
     font-size: 16px;
+    font-weight: 500;
     color: #333;
-    padding: 20px;
+    padding: 10px;
     display: block;
+    margin: 0;
 }
 
 .dropdown-item a:hover {
