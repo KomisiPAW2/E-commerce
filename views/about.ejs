@@ -34,29 +34,25 @@
     <div class="container">
         <h3 class="sub-title" style="margin-bottom: 25px;">Tentang Kami</h3>
         <div class="box-content-about flex-space-arround" style="flex-wrap: wrap; padding: 50px 40px; margin: 0px 10px;">
-            <div class="box-content-middle" style="background-color: rgba(0,0,0,0); margin: 50px 0px;"> 
-                <img class="foto-about" src='assets/waroEng4x.png' alt="logo">
+            <div class="box-content-middle" style="background-color: #f3f3f3; background-image: url('<%= items[0].foto %>'); background-position: center; background-repeat: no-repeat; background-size: contain;"> 
             </div>
             <div class="box-content-big" style="background-color: rgba(0,0,0,0); padding: 20px;">
-                <% items.forEach((item) => { %>
-                    <h2 class="headDesc">Nama Toko</h2>
-                    <p class="bodyDesc" style="margin-bottom: 25px;"><%= item.nama_toko %></p>
-                    <h2 class="headDesc">Alamat Toko</h2>
-                    <p class="bodyDesc" style="margin-bottom: 25px;"><%= item.alamat_toko %></p>
-                    <h2 class="headDesc">Deskrpsi Toko</h2>
-                    <p class="bodyDesc" style="margin-bottom: 25px;"><%= item.deskripsi_toko %></p>
-                    <h2 class="headDesc">Email Toko</h2>
-                    <p class="bodyDesc" style="margin-bottom: 25px;"><%= item.email %></p>
-                    <h2 class="headDesc">Nomor Telepon Toko</h2>
-                    <p class="bodyDesc" style="margin-bottom: 25px;"><%= item.nomor_telepon %></p>
-                <% }) %> 
+                <h2 class="headDesc">Nama Toko</h2>
+                <p class="bodyDesc" style="margin-bottom: 25px;"><%= items[0].nama_toko %></p>
+                <h2 class="headDesc">Alamat Toko</h2>
+                <p class="bodyDesc" style="margin-bottom: 25px;"><%= items[0].alamat_toko %></p>
+                <h2 class="headDesc">Deskrpsi Toko</h2>
+                <p class="bodyDesc" style="margin-bottom: 25px;"><%= items[0].deskripsi_toko %></p>
+                <h2 class="headDesc">Email Toko</h2>
+                <p class="bodyDesc" style="margin-bottom: 25px;"><%= items[0].email %></p>
+                <h2 class="headDesc">Nomor Telepon Toko</h2>
+                <p class="bodyDesc" style="margin-bottom: 25px;"><%= items[0].nomor_telepon %></p>
             </div>
             <h2 class="sub-title" style="margin: 20px auto; border-bottom: 3px solid #333; padding: 10px;">Gallery</h2>
-            <div class="galery flex-space-arround">
-                <div class="galery-item"></div>
-                <div class="galery-item"></div>
-                <div class="galery-item"></div>
-                <div class="galery-item"></div>
+            <div class="galery flex-space-arround" style="flex-wrap: wrap;">
+                <% items.forEach(element => { %>
+                    <div class="galery-item" style="background-image: url('<%= element.foto %>'); background-size: contain; background-repeat: no-repeat; background-position: center; margin: 15px 0px;"></div>
+                <% }) %>
             </div>
         </div>
     <footer>

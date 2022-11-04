@@ -106,7 +106,7 @@ app.get('/cart', (req, res) => {
 
 // routing laman about
 app.get('/about', (req,res) => {
-    connection.query('select * from tb_toko', (err, results) => {
+    connection.query('select tb_toko.nama_toko, tb_toko.alamat_toko, tb_toko.deskripsi_toko, tb_toko.nomor_telepon, tb_toko.email, asset.foto, asset.nama_asset from tb_toko JOIN  asset on tb_toko.id_toko = asset.id_toko', (err, results) => {
         if (err) {
             throw error;
         }
@@ -222,7 +222,7 @@ app.get('/asset', (req,res) => {
 app.post('/tambah-asset', (req,res) => {
     var nama = req.body.namaField;
     var foto = req.body.foto;
-    connection.query('insert into asset(nama_asset, foto) values (?, ?)', [nama, foto], (error, results) => {
+    connection.query('insert into asset(nama_asset, foto, id_toko) values (?, ?, 1)', [nama, foto], (error, results) => {
         if (error) {
             throw error;
         }

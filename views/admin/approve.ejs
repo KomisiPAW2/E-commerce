@@ -6,18 +6,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>waroEng</title>
     <link rel="stylesheet" href="css/style.css">
-
 </head>
 <body>
     <header>
         <div class="logo">
             <img src="assets/waroEng3.png"/>
         </div>
-        <div class="login">
-            <select>
+        <div class="login" style="margin-right: 70px;">
+            <!-- <select >
                 <option value="admin">Admin</option>
                 <option value="keluar">Logout</option>
-            </select>
+            </select> -->
+            <div class="profil-dropdown flex-content-center">
+                <button style="cursor: pointer;">Admin</button>
+                <div class="dropdown-item">
+                    <a href="/admin" class="item-a">Logout</a>
+                </div>
+            </div>
         </div>
     </header>
 
