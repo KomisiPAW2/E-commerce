@@ -51,10 +51,10 @@
             <div class="isiedit">
                 <form action="/hapus-barang" method="post">
                     <div class="NT">
-                        <p>Asset</p>
+                        <p>Barang</p>
                         <select name="barang" id="barang" class="lul-select">
-                            <% assets.forEach((element) => { %>
-                                <option value="<%= element.id_asset %> "><%= element.nama_asset %> </option>
+                            <% produks.forEach((element) => { %>
+                                <option value="<%= element.id_produk %> "><%= element.Nama_Produk %> </option>
                             <% }) %>
                         </select>
                     </div>

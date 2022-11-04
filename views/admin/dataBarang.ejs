@@ -45,7 +45,15 @@
                 <div class="judul">
                     <h1>Data Barang</h1>
                 </div>
-                <a href="/tambahDatabarang" class="tombol">Tambah</a>
+                <div style="width: 300px; display: flex;">
+                    <a class="hapus lul-pad p-16" href="/hapusBarang">
+                        <img src="assets/trash.png" width="20px">
+                    </a>
+                    <a class="edit lul-pad p-16" href="/editBarang">
+                        <img src="assets/edit.png" width="20px">
+                    </a>
+                    <a href="/tambahDataBarang" class="tombol">Tambah</a>
+                </div>
             </div>
 
             <div class="isiaset">
@@ -60,7 +68,6 @@
                         <p>Harga Beli</p>
                         <p>Harga Jual</p>
                         <p>Foto</p>
-                        <p>Aksi</p>
                     </div>
 
                     <% for (let index = 0; index < produks.length; index++) { %>
@@ -72,17 +79,9 @@
                             <p> <%= element.Satuan %> </p>
                             <p> <%= element.Deskripsi %> </p>
                             <p> <%= element.jenis_barang %> </p>
-                            <p><%= element.Harga_Beli %></p>
-                            <p><%= element.Harga_Jual %></p>
+                            <p><%= element.harga_beli %></p>
+                            <p><%= element.harga_jual %></p>
                             <img class="gbrdata" src="<%= element.foto %>" >
-                            <div class="aksi">
-                                <a class="hapus lul-pad" href="/hapusBarang">
-                                    <img src="assets/trash.png" width="20px">
-                                </a>
-                                <a class="edit lul-pad" href="/editBarang">
-                                    <img src="assets/edit.png" width="20px">
-                                </a>
-                            </div>
                         </div>
                     <% } %> 
                 </div> 

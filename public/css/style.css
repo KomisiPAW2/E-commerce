@@ -108,6 +108,7 @@ a {
     font-size: 16px;
     padding: 10px 15px;
     border-radius: 10px;
+    width: 100px;
 }
 .tombol:hover{
     background-color: #1b9b74;
@@ -629,4 +630,9 @@ a {
 
 .lul-pad {
     padding: 10px;
+}
+
+.p-16 {
+    align-items: center;
+    text-align: center;
 }

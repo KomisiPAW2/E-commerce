@@ -233,8 +233,6 @@ app.post('/tambah-asset', (req,res) => {
 });
 
 app.get('/hapusAsset', (req,res) => {
-    var id = req.body.id;
-
     connection.query ('SELECT * FROM asset', (error, results) => {
         if (error) {
             throw error;
@@ -281,7 +279,7 @@ app.post('/tambah-data', (req,res) => {
     var hargaBeli = req.body.hargaBeli;
     var foto = req.body.foto;
 
-    connection.query('insert into produk(Nama_Produk, Jumlah, Satuan, Deskripsi, foto, harga_beli, harga_jual, id_jenis) values (?, ?, ?, ?, ?, ?, ?, ?)', [nama, jumlah, satuan, deskripsi, foto, jenis, hargaBeli, hargaJual], (error, results) => {
+    connection.query('insert into produk(Nama_Produk, Jumlah, Satuan, Deskripsi, foto, harga_beli, harga_jual, id_jenis) values (?, ?, ?, ?, ?, ?, ?, ?)', [nama, jumlah, satuan, deskripsi, foto, hargaBeli, hargaJual, jenis], (error, results) => {
         if (error) {
             throw error;
         }
@@ -290,17 +288,57 @@ app.post('/tambah-data', (req,res) => {
 });
 
 app.get('/hapusBarang', (req,res)=>{
-    connection.query('select * from produk', (err, results)={
+    connection.query('select * from produk', (err, results)=>{
         if (err) {
             throw err;
         }
-        
+        res.render('admin/hapusBarang.ejs', {produks:results});
     })
 })
 
+app.post('/hapus-barang', (req,res)=>{
+    var id = req.body.barang
+
+    connection.query ('DELETE FROM produk WHERE id_produk=?',[id], (error, results) => {
+        if (error) {
+            throw error;
+        }
+
+        // isi method get (index)
+        res.redirect('/dataBarang');
+    });
+})
+
+app.get('/editBarang', (req,res)=>{
+    connection.query('SELECT * FROM jenis_barang', (err, results) => {
+        if (err) {
+            throw error;
+        }
+        res.render('admin/editBarang.ejs', {jenises:results});
+    });
+})
+
+app.post('/edit-data', (req,res) => {
+    var nama = req.body.namaProduk;
+    var jumlah = req.body.jumlah;
+    var satuan = req.body.satuan;
+    var deskripsi = req.body.deskripsi;
+    var jenis = req.body.jenis;
+    var hargaJual = req.body.hargaJual;
+    var hargaBeli = req.body.hargaBeli;
+    var foto = req.body.foto;
+
+    connection.query('UPDATE produk SET Jumlah=?, Satuan=?, Deskripsi=?, foto=?, harga_beli=?, harga_jual=?, id_jenis=? WHERE Nama_Produk=?', [jumlah, satuan, deskripsi, foto, hargaBeli, hargaJual, jenis, nama], (error, results) => {
+        if (error) {
+            throw error;
+        }
+        res.redirect('/databarang');
+    })
+});
+
 app.get('/kategori', (req,res) => {
 
-    connection.query('select jenis_barang.id_JenisBarang, jenis_barang.nama_jenis AS jenis, kategori_barang.id_kategori, kategori_barang.nama_kategori AS kategori FROM jenis_barang left join kategori_barang on jenis_barang.id_kategori = kategori_barang.id_kategori ', (err, results)=> {
+    connection.query('select jenis_barang.id_JenisBarang, jenis_barang.nama_jenis AS jenis, kategori_barang.id_kategori, kategori_barang.nama_kategori AS kategori FROM jenis_barang right join kategori_barang on jenis_barang.id_kategori = kategori_barang.id_kategori ', (err, results)=> {
         if (err) {
             throw error;
         }

@@ -45,7 +45,12 @@
                 <div class="judul">
                     <h1>Assets</h1>
                 </div>
-                <a href="/tambahAset" class="tombol">Tambah</a>
+                <div style="width: 200px; display: flex;">
+                    <a class="hapus lul-pad p-16" style="margin-left: 20px;" href="/hapusAsset">
+                        <img src="assets/trash.png" width="20px">
+                    </a>
+                    <a href="/tambahAset" class="tombol">Tambah</a>
+                </div>
             </div>
 
             <div class="isiaset">
@@ -54,22 +59,19 @@
                         <p>No</p>
                         <p>Nama Field</p>
                         <p>Foto</p>
-                        <p>Aksi</p>
                     </div>
                     
-                    <% fotos.forEach((fotos) => { %>
-                        <form action="/hapusAsset" method="get">
+                    <% for( let index = 0; index < fotos.length; index++ ) { %>
+                        <% const element = fotos[index]; %> 
+                        <!-- <form action="/hapusAsset" method="get"> -->
                             <div class="aset1"> 
-                                <input type="text" name="id" hidden value="<%= fotos.id_asset %>">
-                                <p> <%= fotos.id_asset %> </p>
-                                <p><%= fotos.nama_asset %></p>
-                                <img class="gambar" src="<%= fotos.foto %>" >
-                                <button class="hapus" style="margin-left: 20px;" >
-                                    <img src="assets/trash.png" width="20px">
-                                </button>
+                                <p> <%= index+1 %> </p>
+                                <input type="text" name="id" hidden value="<%= element.id_asset %>">
+                                <p><%= element.nama_asset %></p>
+                                <img class="gambar" src="<%= element.foto %>" >
                             </div> 
-                        </form>
-                    <% }); %> 
+                            <!-- </form> -->
+                    <% } %>
                 </div> 
             </div>
 
